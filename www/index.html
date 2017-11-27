@@ -43,7 +43,17 @@ $(function() {
     	</div>
     	<div class="button" onclick="app.okGo('brown')">
     	<p id="browny">brown</p>
-    	</div>
+        </div>
+        <div id="color-select" class="color-select">
+        <label id="switcher" class="switch">
+        <input type="checkbox" id="flickerColor">
+        <span id="box" class="slider round"></span>
+        </label>
+        </div>
+        <div id="colors" class="color-select-colors">
+            <div class="color-select-black"></div>
+            <div class="color-select-red"></div>
+        </div>
     	<div id="audio"><audio id="whitenoise" src="audio/white_noise.mp3" preload="auto"></audio>
     	<audio id="pinknoise" src="audio/pink_noise.mp3" preload="auto"></audio>
     	<audio id="brownnoise" src="audio/brown_noise.mp3" preload="auto"></audio>

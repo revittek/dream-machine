@@ -4,7 +4,7 @@ var app = {
 	    document.getElementById("okgo").innerHTML = this.hertz+" Hz";
 	},
     onReset: function() {
-		document.getElementById("title").style.visibility = "visible";
+        document.getElementById("title").style.visibility = "visible";
     	document.getElementById("reset").style.display = "none";
     	document.getElementById("knobby").style.visibility = "visible";
     	document.getElementById("valdisplay").style.display = "block";    	
@@ -16,7 +16,12 @@ var app = {
     	this.pauseNoise();
     	},
     okGo: function(color) {
-    	console.log(this.hertz + " " + color);
+        if (document.getElementById("flickerColor").checked) {
+            var flickerColor = 'red';
+        } else {
+            var flickerColor = 'black';
+        }
+    	console.log(this.hertz + "Hz, " + color + " noise, " + flickerColor);
     	document.getElementById("valdisplay").style.display = "none";
     	document.getElementById("title").style.visibility = "hidden";
     	document.getElementById("reset").style.display = "block";
@@ -27,8 +32,8 @@ var app = {
     	var state = false;
     	myVar = setInterval(function(){
             state = !state;
-            var color = (state?'red':'white');
-            document.body.style.backgroundColor = color;
+            var bgcolor = (state ? flickerColor : 'white');
+            document.body.style.backgroundColor = bgcolor;
         }, 1000/this.hertz);
     },
     onInput: function(val) {

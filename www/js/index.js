@@ -4,31 +4,44 @@ var app = {
 	    document.getElementById("okgo").innerHTML = this.hertz+" Hz";
 	},
     onReset: function() {
-		document.getElementById("title").style.visibility = "visible";
+        document.getElementById("title").style.visibility = "visible";
     	document.getElementById("reset").style.display = "none";
     	document.getElementById("knobby").style.visibility = "visible";
     	document.getElementById("valdisplay").style.display = "block";    	
     	document.getElementById("pinky").style.visibility = "visible";
     	document.getElementById("browny").style.visibility = "visible";
+        document.getElementById("colors").style.visibility = "visible";
+    	document.getElementById("color-select").style.visibility = "visible";
+        document.getElementById("box").style.visibility = "visible";
+        document.getElementById("switcher").style.visibility = "visible";
     	document.body.style.backgroundColor = "white";
     	clearInterval(myVar);
     	$('dial').val(this.hertz).trigger('change');
     	this.pauseNoise();
     	},
     okGo: function(color) {
-    	console.log(this.hertz + " " + color);
+        if (document.getElementById("flickerColor").checked) {
+            var flickerColor = 'red';
+        } else {
+            var flickerColor = 'black';
+        }
+    	console.log(this.hertz + "Hz, " + color + " noise, " + flickerColor);
     	document.getElementById("valdisplay").style.display = "none";
     	document.getElementById("title").style.visibility = "hidden";
     	document.getElementById("reset").style.display = "block";
     	document.getElementById("knobby").style.visibility = "hidden";
     	document.getElementById("pinky").style.visibility = "hidden";
     	document.getElementById("browny").style.visibility = "hidden";
+        document.getElementById("colors").style.visibility = "hidden";
+    	document.getElementById("color-select").style.visibility = "hidden";
+        document.getElementById("box").style.visibility = "hidden";
+        document.getElementById("switcher").style.visibility = "hidden";
     	this.playNoise(color);
     	var state = false;
     	myVar = setInterval(function(){
             state = !state;
-            var color = (state?'red':'white');
-            document.body.style.backgroundColor = color;
+            var bgcolor = (state ? flickerColor : 'white');
+            document.body.style.backgroundColor = bgcolor;
         }, 1000/this.hertz);
     },
     onInput: function(val) {
