@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Dream Machine</title>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="js/jquery.knob.js"></script>
+    </head>
+    <body>
+    	<div class="app">
+    	<h1 id="title">Dream Machine</h1>
+    	<div id="knobby">
+    	<input id="myDial" type="text" value="900" class="dial" data-width="80" data-height="80">
+    	<script>
+$(function() {
+    $(".dial").knob({
+    'min':800,
+    'max':1100,
+    'angleOffset':-150,
+    'angleArc':300,
+    'fgColor':'#333333',
+    'displayInput':false,
+    'bgColor':'#A9B5B6',
+    'thickness':.6,
+    'release' : function(v){app.onInput(v);}
+    });
+});
+</script>
+    	</div>
+    	<div id="valdisplay" class="button" onclick="app.okGo('white')">
+    	<p id="okgo"></p></div>
+    	<div class="button" onclick="app.onReset()">
+    	<p id="reset">pause</p>
+    	</div>
+    	<div class="button" onclick="app.okGo('pink')">
+    	<p id="pinky">pink</p>
+    	</div>
+    	<div class="button" onclick="app.okGo('brown')">
+    	<p id="browny">brown</p>
+    	</div>
+    	<div id="audio"><audio id="whitenoise" src="audio/white_noise.mp3" preload="auto"></audio>
+    	<audio id="pinknoise" src="audio/pink_noise.mp3" preload="auto"></audio>
+    	<audio id="brownnoise" src="audio/brown_noise.mp3" preload="auto"></audio>
+    	</div>
+    	<script>app.initialize();</script>
+        </div>
+    	</body>
+</html>
