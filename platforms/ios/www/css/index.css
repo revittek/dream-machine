@@ -1,0 +1,180 @@
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#ffffff;
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+/* Portrait layout (default) */
+.app {
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%; 
+    height:225px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-240px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:5px;
+    text-align:center;
+    line-height:85%;
+}
+#okgo {
+	border: 1px solid black;
+	border-radius: 5px;
+	-webkit-border-radius:5px;
+	margin:5px 40px;
+    padding:10px 10px;
+    display: block;
+}
+#pinky {
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    margin:5px 40px;
+    padding:10px 10px;
+    background-color:#ED989A;
+    display:block-progression;
+    visibility:visible;
+}
+#browny {
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    margin:5px 40px;
+    padding:10px 10px;
+    background-color:#7D441A;
+    display:block-progression;
+    visibility:visible;
+}
+#reset {
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    margin:5px 40px;
+    padding:10px 10px;
+    background-color:#4B946A;
+    display:none;
+}
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.button {
+	cursor:pointer;
+	animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+.color-select-red {
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    background-color:red;
+    display: inline-flex;
+    top: -15px;
+    margin: 0px 20px;
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.color-select-black {
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    background-color:black;
+    display: inline-flex;
+    top: -15px;
+    margin: 0px 20px;
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    width: 60px;
+    height: 34px;
+    top: 15px;
+    margin:5px 5px;
+    padding:10px 10px;
+    visibility:visible;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #d8d8d8;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
