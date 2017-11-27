@@ -10,6 +10,10 @@ var app = {
     	document.getElementById("valdisplay").style.display = "block";    	
     	document.getElementById("pinky").style.visibility = "visible";
     	document.getElementById("browny").style.visibility = "visible";
+        document.getElementById("colors").style.visibility = "visible";
+    	document.getElementById("color-select").style.visibility = "visible";
+        document.getElementById("box").style.visibility = "visible";
+        document.getElementById("switcher").style.visibility = "visible";
     	document.body.style.backgroundColor = "white";
     	clearInterval(myVar);
     	$('dial').val(this.hertz).trigger('change');
@@ -28,6 +32,10 @@ var app = {
     	document.getElementById("knobby").style.visibility = "hidden";
     	document.getElementById("pinky").style.visibility = "hidden";
     	document.getElementById("browny").style.visibility = "hidden";
+        document.getElementById("colors").style.visibility = "hidden";
+    	document.getElementById("color-select").style.visibility = "hidden";
+        document.getElementById("box").style.visibility = "hidden";
+        document.getElementById("switcher").style.visibility = "hidden";
     	this.playNoise(color);
     	var state = false;
     	myVar = setInterval(function(){
