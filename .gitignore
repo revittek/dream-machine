@@ -1,4 +1,4 @@
-hooks/
+hooks
 platforms
-plugins/
-node_modules/
+plugins
+node_modules
